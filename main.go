@@ -27,7 +27,7 @@ func main() {
 	// flag.Parse() // optional, since gio.Init() will call this also.
 	gio.Init() // If the command line invokes the mapper or reducer, execute it and exit.
 
-	f := flow.New("top5 words in passwd").
+	f := flow.New("top5 words in data.txt").
 		Read(file.Txt(*filename, 1)).
 		Map("tokenize", mapper.Tokenize). // invoke the registered "tokenize" mapper function.
 		Pipe("debugWithPipe", "tee debug.txt").
